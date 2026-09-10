@@ -19,6 +19,7 @@ void executaLoopPrincipal() {
     int rotacoes = 0;
     int numeroMapaAtual = 0;
     bool temPartidaEmAndamento = false;
+    int blockmoves = 0;
 
     bool rodando = true;
     while (rodando) {
@@ -30,14 +31,14 @@ void executaLoopPrincipal() {
             inicializaFase(numeroMapaAtual, terreno, orientacao, px, py, blocoLinha, blocoColuna,
                             numBlocos, movimentos, rotacoes);
             int resultado = jogaFase(numeroMapaAtual, terreno, orientacao, px, py, blocoLinha,
-                                      blocoColuna, numBlocos, movimentos, rotacoes);
+                                      blocoColuna, numBlocos, movimentos, rotacoes, blockmoves);
             temPartidaEmAndamento = (resultado != SAIU_VITORIA);
             break;
         }
         case 2: // Continuar
             if (temPartidaEmAndamento) {
                 int resultado = jogaFase(numeroMapaAtual, terreno, orientacao, px, py, blocoLinha,
-                                          blocoColuna, numBlocos, movimentos, rotacoes);
+                                          blocoColuna, numBlocos, movimentos, rotacoes, blockmoves);
                 temPartidaEmAndamento = (resultado != SAIU_VITORIA);
             }
             break;

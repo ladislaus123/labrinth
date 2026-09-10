@@ -11,15 +11,16 @@
 #include "fase.hpp"
 using namespace std;
 
+
 int jogaFase(int numero, int terreno[][TAM], int &orientacao, int &px, int &py,
              int blocoLinha[], int blocoColuna[], int &numBlocos,
-             int &movimentos, int &rotacoes) {
+             int &movimentos, int &rotacoes, int &blockmoves) {
     DeactivateCursor();
     (void)system("clear");
 
     while (true) {
         desenhaCenario(terreno, orientacao, blocoLinha, blocoColuna, numBlocos, px, py);
-        exibeStatus(numero, orientacao, movimentos, rotacoes);
+        exibeStatus(numero, orientacao, movimentos, rotacoes, blockmoves);
 
         if (jogadorVenceu(terreno, px, py)) {
             cout << "\nVoce venceu! Pressione qualquer tecla para voltar ao menu...\n";
@@ -49,8 +50,9 @@ int jogaFase(int numero, int terreno[][TAM], int &orientacao, int &px, int &py,
 
             while (aplicaPassoGravidade(terreno, orientacao, blocoLinha, blocoColuna, numBlocos, px, py)) {
                 SetCursorPos(0, 0);
+                blockmoves++;
                 desenhaCenario(terreno, orientacao, blocoLinha, blocoColuna, numBlocos, px, py);
-                exibeStatus(numero, orientacao, movimentos, rotacoes);
+                exibeStatus(numero, orientacao, movimentos, rotacoes, blockmoves);
                 usleep(120000); // pausa curta entre cada linha de queda, para dar pra ver o bloco cair
             }
 

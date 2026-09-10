@@ -10,4 +10,4 @@
 // motivo da saida do laco (menu ou vitoria)
 int jogaFase(int numero, int terreno[][TAM], int &orientacao, int &px, int &py,
              int blocoLinha[], int blocoColuna[], int &numBlocos,
-             int &movimentos, int &rotacoes);
+             int &movimentos, int &rotacoes, int &blockmoves);

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "desenho.hpp"
 #include "terreno.hpp"
+#include "jogo.hpp"
 using namespace std;
 
 void desenhaCenario(int terreno[][TAM], int orientacao, int blocoLinha[], int blocoColuna[],
@@ -29,10 +30,11 @@ void desenhaCenario(int terreno[][TAM], int orientacao, int blocoLinha[], int bl
     }
 }
 
-void exibeStatus(int numero, int orientacao, int movimentos, int rotacoes) {
+void exibeStatus(int numero, int orientacao, int movimentos, int rotacoes, int blockmoves) {
     cout << "Mapa " << numero
          << " | Orientacao: " << orientacao << " graus"
          << " | Movimentos: " << movimentos
+         << " | Block moves: " << blockmoves
          << " | Rotacoes: " << rotacoes << "\n";
     cout << "WASD move | Q/E gira (sobre a alavanca) | R reinicia | ESC volta ao menu\n";
 }
